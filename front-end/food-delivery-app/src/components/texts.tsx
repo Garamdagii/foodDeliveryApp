@@ -1,18 +1,13 @@
-type Props = {
-  text: string;
-  isTitle: boolean;
-  isMiddle: boolean;
-  isBottom: boolean;
+export const BottomTexts = ({ text }: { text: string }) => {
+  return <span className="text-sm text-[#71717A] leading-[20px]">{text}</span>;
 };
 
-export const Texts = ({ text, isTitle, isMiddle, isBottom }: Props) => {
+export const TitleTexts = ({ text }: { text: string }) => {
   return (
-    <div
-      className={`${isTitle && "text-base leading-[28px] text-[#71717A]"} 
-      ${isMiddle && "text-base leading-[24px] text-[#FAFAFA]"} 
-      ${isBottom && "text-sm leading-[20px] text-[#71717A]"}`}
-    >
-      {text}
-    </div>
+    <span className="text-base text-[#71717A] leading-[28px]">{text}</span>
   );
+};
+
+export const MiddleTexts = ({ text }: { text: string }) => {
+  return <span className="text-base text-[red] leading-[24px]">{text}</span>;
 };

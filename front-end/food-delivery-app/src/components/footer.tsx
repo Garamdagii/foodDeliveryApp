@@ -1,45 +1,45 @@
-import { Texts } from "./texts";
+import { BottomTexts, MiddleTexts, TitleTexts } from "./texts";
+
+const bottomTexts = [
+  "Copy right 2024",
+  "©",
+  "Nomnom LLC",
+  "Privacy policy",
+  "Terms and conditoin",
+  "Cookie policy",
+];
+
+const middleTexts = [
+  "Home",
+  "Contact us",
+  "Delivery zone",
+  "Appetizers",
+  "Salads",
+  "Pizzas",
+  "Main dishes",
+  "Desserts",
+];
 
 export const Footer = () => {
   return (
     <div>
-      <div></div>
-      <div></div>
-      <div className="flex px-8 gap-12">
-        <div>
-          <Texts
-            isBottom={true}
-            isMiddle={false}
-            isTitle={false}
-            text="Copy right 2024"
-          />
-          <Texts isBottom={true} isMiddle={false} isTitle={false} text="©" />
-          <Texts
-            isBottom={true}
-            isMiddle={false}
-            isTitle={false}
-            text="Nomnom LLC"
-          />
-        </div>
-        <Texts
-          isBottom={true}
-          isMiddle={false}
-          isTitle={false}
-          text="Privacy policy"
-        />
-        <Texts
-          isBottom={true}
-          isMiddle={false}
-          isTitle={false}
-          text="Terms and conditoin"
-        />
-        <Texts
-          isBottom={true}
-          isMiddle={false}
-          isTitle={false}
-          text="Cookie policy"
-        />
+      <div className="flex flex-col gap-4">
+        <h3>NOMNOM</h3>
+        {middleTexts.slice(0, 3).map((text, index) => (
+          <MiddleTexts key={index} text={text} />
+        ))}
       </div>
+      <div>
+        <h3>MENU</h3>
+        {middleTexts.slice(3, 7).map((text, index) => (
+          <MiddleTexts key={index} text={text} />
+        ))}
+      </div>
+      {/* <div className="flex px-8 gap-12">
+        {bottomTexts.map((text, index) => (
+          <BottomTexts key={index} text={text} />
+        ))}
+      </div> */}
     </div>
   );
 };
