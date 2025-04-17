@@ -18,6 +18,11 @@ const middleTexts = [
   "Pizzas",
   "Main dishes",
   "Desserts",
+  "Side dish",
+  "Brunch",
+  "Desserts",
+  "Beverages",
+  "Fish & Sea foods",
 ];
 
 export const Footer = () => {
@@ -29,9 +34,15 @@ export const Footer = () => {
           <MiddleTexts key={index} text={text} />
         ))}
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <h3>MENU</h3>
-        {middleTexts.slice(3, 7).map((text, index) => (
+        {middleTexts.slice(3, 8).map((text, index) => (
+          <MiddleTexts key={index} text={text} />
+        ))}
+      </div>
+      <div className="flex flex-col gap-4">
+        <div></div>
+        {middleTexts.slice(8, 13).map((text, index) => (
           <MiddleTexts key={index} text={text} />
         ))}
       </div>
