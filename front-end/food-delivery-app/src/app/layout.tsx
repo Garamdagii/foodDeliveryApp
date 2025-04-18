@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AuthImage } from "./(auth)/components/authImage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex justify-center items-center w-screen h-screen gap-[48px]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex justify-center items-center w-screen h-screen gap-[48px] bg-black`}
       >
         {children}
-        {/* <AuthImage /> */}
       </body>
     </html>
   );

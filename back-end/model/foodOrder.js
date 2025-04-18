@@ -1,10 +1,26 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose, { Schema } from "mongoose";
+
+const FoodOrderItemSchema = new mongoose.Schema({
+  food: {
+    type: Schema.Types.ObjectId,
+    ref: "food",
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+});
 
 const foodOrderSchema = new mongoose.Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
   totalPrice: {
     type: Number,
     required: true,
   },
+  foodOrderItems: { FoodOrderItemSchema },
   status: {
     type: String,
     required: true,

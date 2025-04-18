@@ -6,7 +6,7 @@ const foodSchema = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   image: {
@@ -27,7 +27,7 @@ const foodSchema = new mongoose.Schema({
   },
   category: {
     type: Schema.Types.ObjectId,
-    ref: "foodCategory",
+    ref: "category",
   },
 });
 

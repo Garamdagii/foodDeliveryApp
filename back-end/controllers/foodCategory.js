@@ -26,7 +26,7 @@ export const createFoodCategory = async (req, res) => {
     .end();
 };
 
-export const getFoodCategories = async (req, res) => {
+export const getFoodCategories = async (_, res) => {
   try {
     const categories = await FoodCategoryModel.find();
     return res

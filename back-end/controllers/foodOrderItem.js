@@ -1,17 +1,17 @@
-import { FoodOrderModel } from "../model/foodOrder.js";
+import { FoodOrderItemModel } from "../model/foodOrderItem.js";
 
-export const createFoodOrder = async (req, res) => {
-  const { totalPrice, status } = req.params;
+export const createFoodOrderItem = async (req, res) => {
+  const { food, quantity } = req.body;
   try {
-    const FoodOrder = await FoodOrderModel.create({
-      totalPrice: totalPrice,
-      status: status,
+    const FoodOrderItem = await FoodOrderItemModel.create({
+      food: food,
+      quantity: quantity,
     });
     return res
       .status(200)
       .send({
         success: true,
-        FoodOrder: FoodOrder,
+        FoodOrderItem: FoodOrderItem,
       })
       .end();
   } catch (error) {
@@ -26,14 +26,14 @@ export const createFoodOrder = async (req, res) => {
     .end();
 };
 
-export const getFoodOrders = async (_, res) => {
+export const getOrderItems = async (_, res) => {
   try {
-    const Orders = await FoodOrderModel.find().populate("foodOrderItem");
+    const OrderItems = await FoodOrderItemModel.find().populate("food");
     return res
       .status(200)
       .send({
         success: true,
-        Orders: Orders,
+        OrderItems: OrderItems,
       })
       .end();
   } catch (error) {
@@ -48,15 +48,15 @@ export const getFoodOrders = async (_, res) => {
     .end();
 };
 
-export const getFoodOrderById = async (req, res) => {
+export const getFoodOrderItemById = async (req, res) => {
   const { id } = req.params;
   try {
-    const FoodOrder = await FoodOrderModel.findById(id);
+    const OrderItem = await FoodOrderItemModel.findById(id);
     return res
       .status(200)
       .send({
         success: true,
-        FoodOrder: FoodOrder,
+        OrderItem: OrderItem,
       })
       .end();
   } catch (error) {
